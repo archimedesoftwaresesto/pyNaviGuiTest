@@ -14,7 +14,7 @@ window = ng.Ng()
  input('', k=KEY_NAME).crlf().
  text('Surname').crlf().
  input('', k=KEY_SURNAME).
- image('./tableimages/img/desktop-app.png', size='100x100', k=KEY_IMKMAGINE) .
+ image('./tableimages/img/desktop-app.png', size='50x50', k=KEY_IMKMAGINE) .
  button('Leggi',k=KEY_BTN_LEGGI).crlf()
 
  )
