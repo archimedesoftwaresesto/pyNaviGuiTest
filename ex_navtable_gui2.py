@@ -44,9 +44,10 @@ tabledata2 = [
     ['A008', 'Cuffie Sony Noise Cancelling', '299.99', 'headphones1.jpg'],
 ]
 
-(window.gotoxy(30, 50).navtable('Persone', conf=tableconf1, data=tabledata1, nr_rows=5,
-                                folder_images='./tableimages/img', size_img='20x20', vnavgap=50,   k=KEY_TABLENAV_PERSONE).
- gotoxy(20, 500).navtable('Prodotti', conf=tableconf2, data=tabledata2, nr_rows=3, size_img='30x30',   vgap=30,
+(window.gotoxy(30, 50).navtable('Persone', conf=tableconf1, data=tabledata1, nr_rows=5, alternate_rowcolor='#CCCCCC',
+                                folder_images='./tableimages/img', size_img='25x25',    vnavgap=20,     k=KEY_TABLENAV_PERSONE).
+ gotoxy(20, 400).navtable('Prodotti', conf=tableconf2, data=tabledata2, nr_rows=3, size_img='40x40',   vgap=30,
+alternate_rowcolor='#CCCCCC',
                 folder_images='./tableimages/img', k=KEY_TABLENAV_PRODOTTI_IDEM)
  )
 
@@ -90,6 +91,7 @@ while True:
         #    window.delete(k=KEY_TABLENAV2_PRODOTTI)
         window.delete(k=KEY_TABLENAV2_PRODOTTI)
         window.gotoxy(600, 50).navtable('Prodotti', conf=tableconf2, data=tabledata2, nr_rows=6,
+                                        alternate_rowcolor='#CCCCCC',
                                  folder_images='./tableimages/img', size_img='50x50', k=KEY_TABLENAV2_PRODOTTI)
 
 
