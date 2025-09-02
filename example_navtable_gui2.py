@@ -1,7 +1,7 @@
 import pyNaviGui as ng
 
 window = ng.Ng()
-(KEY_TABLENAV1, KEY_TABLENAV2, KEY_BTN_LEGGI, *_) = window.set_keys()
+(KEY_TABLENAV_PERSONE, KEY_TABLENAV2_PRODOTTI, KEY_TABLENAV_PRODOTTI_IDEM, KEY_BTN_LEGGI, KEY_BTN_RICREA, *_) = window.set_keys()
 
 # Configurazione della finestra
 window.winTitle('Demo Tabelle Navigabili').winGeometry('1200x800')
@@ -44,20 +44,14 @@ tabledata2 = [
     ['A008', 'Cuffie Sony Noise Cancelling', '299.99', 'headphones1.jpg'],
 ]
 
-# Layout con due tabelle affiancate
-window.gotoxy(30, 50)
-
-# Prima tabella (Persone)
-window.navtable('Persone', conf=tableconf1, data=tabledata1, nr_rows=5,
-                folder_images='./tableimages/img', k=KEY_TABLENAV1)
-
-# Seconda tabella (Prodotti) - posizionata a destra
-window.gotoxy(600, 50)
-window.navtable('Prodotti', conf=tableconf2, data=tabledata2, nr_rows=6,
-                folder_images='./tableimages/img', k=KEY_TABLENAV2)
+(window.gotoxy(30, 50).navtable('Persone', conf=tableconf1, data=tabledata1, nr_rows=5,
+                                folder_images='./tableimages/img', size_img='20x20', vnavgap=50,   k=KEY_TABLENAV_PERSONE).
+ gotoxy(20, 500).navtable('Prodotti', conf=tableconf2, data=tabledata2, nr_rows=3, size_img='30x30',   vgap=30,
+                folder_images='./tableimages/img', k=KEY_TABLENAV_PRODOTTI_IDEM)
+ )
 
 # Bottone per leggere i valori
-window.gotoxy(30, 450).button('Leggi Valori', k=KEY_BTN_LEGGI)
+window.gotoxy(900, 550).button('Rileggi i prodotti',k=KEY_BTN_RICREA).button('Leggi Valori', k=KEY_BTN_LEGGI)
 
 window.finalize_layout()
 
@@ -66,13 +60,13 @@ while True:
 
     if event == KEY_BTN_LEGGI:
         print("=== VALORI CORRENTI ===")
-        if KEY_TABLENAV1 in values:
-            tab1 = values[KEY_TABLENAV1]
+        if KEY_TABLENAV_PERSONE in values:
+            tab1 = values[KEY_TABLENAV_PERSONE]
             print(f"Tabella Persone - Pagina {tab1['pagina_corrente'] + 1}/{tab1['totale_pagine']}")
             print("Dati pagina corrente:", tab1['dati_pagina_corrente'])
 
-        if KEY_TABLENAV2 in values:
-            tab2 = values[KEY_TABLENAV2]
+        if KEY_TABLENAV2_PRODOTTI in values:
+            tab2 = values[KEY_TABLENAV2_PRODOTTI]
             print(f"Tabella Prodotti - Pagina {tab2['pagina_corrente'] + 1}/{tab2['totale_pagine']}")
             print("Dati pagina corrente:", tab2['dati_pagina_corrente'])
 
@@ -86,13 +80,24 @@ while True:
             print(f"Cliccato sulla riga {clicked_row + 1}: {clicked_data}")
 
         # Determina quale tabella è stata cliccata
-        if KEY_TABLENAV1 in event:
+        if KEY_TABLENAV_PERSONE in event:
             print("Click sulla tabella Persone")
-        elif KEY_TABLENAV2 in event:
+        elif KEY_TABLENAV2_PRODOTTI in event:
             print("Click sulla tabella Prodotti")
+
+    elif event == KEY_BTN_RICREA:
+        #if window.exists(k=KEY_TABLENAV2_PRODOTTI):
+        #    window.delete(k=KEY_TABLENAV2_PRODOTTI)
+        window.delete(k=KEY_TABLENAV2_PRODOTTI)
+        window.gotoxy(600, 50).navtable('Prodotti', conf=tableconf2, data=tabledata2, nr_rows=6,
+                                 folder_images='./tableimages/img', size_img='50x50', k=KEY_TABLENAV2_PRODOTTI)
+
 
     elif event is None:
         print('Finestra chiusa')
         break
+
+
+
 
 window.close()
