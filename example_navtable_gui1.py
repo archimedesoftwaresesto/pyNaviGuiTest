@@ -40,7 +40,7 @@ tabledata = [
 ]
 
 # Bottoni di navigazione e altre funzioni
-window.tablenav('Articoli', conf=tableconf, data=tabledata, nr_rows=7, folder_images ='./tableimages/img', k=KEY_TABELLANAV)
+window.navtable('Articoli', conf=tableconf, data=tabledata, nr_rows=7, folder_images ='./tableimages/img', k=KEY_TABELLANAV)
 
 window.finalize_layout()
 
