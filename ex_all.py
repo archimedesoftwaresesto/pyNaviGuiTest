@@ -5,16 +5,16 @@ window = ng.Ng()
 (KEY_CLOSE, KEY_NAME, KEY_SURNAME, KEY_OPTIONS, KEY_CB_COLORS, KEY_RB_ANIMAL, KEY_TABELLA, KEY_LB_WEAPON, KEY_NOTE1, KEY_NOTE2, KEY_COMBOBOX, KEY_CB_AUTOMOBILE, KEY_BTN_RIASSUMI,KEY_CB_ELEMENTS,
 KEY_EMAIL, KEY_BTN_INVISIBILITA,KEY_ML_NOTE,   *_) = window.set_keys()
 
-(window.winTitle('Titolo della finestra').winGeometry('1300x600'))
+(window.win_title('Titolo della finestra').win_size('1300x600'))
 
-(window.gotoxy(30, 20).setTextSize(10).setInputSize(20, 1).
+(window.move_to(30, 20).set_text_size(10).set_input_size(20, 1).
 
- text('Name',s='ana').crlf().
- input('', k=KEY_NAME).crlf().
- text('Surname').crlf().
- input('', k=KEY_SURNAME).crlf(spacing=10).
- text('Note ').input('', k=KEY_NOTE1).crlf().
- text('Note altre').input('', k=KEY_NOTE2).crlf(spacing=100)
+ text('Name',s='ana').br().
+ input('', k=KEY_NAME).br().
+ text('Surname').br().
+ input('', k=KEY_SURNAME).br(spacing=10).
+ text('Note ').input('', k=KEY_NOTE1).br().
+ text('Note altre').input('', k=KEY_NOTE2).br(spacing=100)
  )
 
 tableconf={'NOME':['Nome',10], 'COGNOME':['Cognome',20], 'ANNI':['Anni',5]}
@@ -42,9 +42,9 @@ for i,r in enumerate(tabledata):
         colcarattere='red'
     colors.append([i, colsfondo, colcarattere])
 
-window.gotoxy(400,10).table('Tabella anagrafica', conf=tableconf, data= tabledata,  rowcolors= colors, nr_rows=7, k=KEY_TABELLA).crlf()
+window.move_to(400,10).table('Tabella anagrafica', conf=tableconf, data= tabledata,  rowcolors= colors, nr_rows=7, k=KEY_TABELLA).br()
 
-(window.gotoxy(10,230).set(s='c1').
+(window.move_to(10,230).set(s='c1').
  checkboxes('Preferred colours aaaaaaaaaaaaaaaaaa', ('Red', 'Yellow', 'Brown'), k=KEY_CB_COLORS).
  checkboxes('Automobile used', ('Maserati|MASER', 'Ferrari|FERRARI', 'Lamborghini|LAMB', 'Fiat|FIAT'), k=KEY_CB_AUTOMOBILE).
  set(s='').
@@ -53,8 +53,8 @@ window.gotoxy(400,10).table('Tabella anagrafica', conf=tableconf, data= tabledat
 combobox('Engine',('|', 'Engine A|CODA', 'Engine B|CODB', 'Engine C|CODC', 'Engine D|CODD',  'Engine E|CODE'), default='CODD', nr_rows=3, k=KEY_COMBOBOX).
  radio('Select one',['tiger|TIG','oak|OAK','a good cat|CAT'],k=KEY_RB_ANIMAL).
 listbox('Weapons',('Bomb','Missile','Star'),   nr_rows=12, k=KEY_LB_WEAPON).
- checkboxes('Choose', ('First element|FIRST', 'Secon element|SECOND'), k=KEY_CB_ELEMENTS).crlf().
- button('Riassumi valori', k=KEY_BTN_RIASSUMI).crlf().
+ checkboxes('Choose', ('First element|FIRST', 'Secon element|SECOND'), k=KEY_CB_ELEMENTS).br().
+ button('Riassumi valori', k=KEY_BTN_RIASSUMI).br().
 button('Prime due colonne invisibili', k=KEY_BTN_INVISIBILITA)
  )
 

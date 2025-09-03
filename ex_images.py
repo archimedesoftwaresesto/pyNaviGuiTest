@@ -5,17 +5,17 @@ window = ng.Ng()
  *_ ) = window.set_keys()
 
 # general settings of the window and other use, ful variables
-(window.winTitle('Titolo della finestra').winGeometry('800x600'))
+(window.win_title('Titolo della finestra').win_size('800x600'))
 
 
 
-(window.gotoxy(30,80).setRowHeigh(20).setInputSize(30,1).
- text('Name').crlf().
- input('', k=KEY_NAME).crlf().
- text('Surname').crlf().
+(window.move_to(30,80).set_row_height(20).set_input_size(30,1).
+ text('Name').br().
+ input('', k=KEY_NAME).br().
+ text('Surname').br().
  input('', k=KEY_SURNAME).
  image('./tableimages/img/desktop-app.png', size='50x50', k=KEY_IMKMAGINE) .
- button('Leggi',k=KEY_BTN_LEGGI).crlf()
+ button('Leggi',k=KEY_BTN_LEGGI).br()
 
  )
 

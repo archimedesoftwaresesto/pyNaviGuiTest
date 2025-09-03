@@ -1,21 +1,21 @@
-import runner, import pyNaviGui as ng
+import runner,  pyNaviGui as ng
 
 window = ng.Ng()
 (KEY_CLOSE, KEY_NAME, KEY_SURNAME, KEY_OPTIONS, KEY_BTN_LEGGI, KEY_CHECKBOXES1, KEY_CHECKBOXES2, KEY_LISTBOX,
  *_) = window.set_keys()
 
 # general settings of the window and other use, ful variables
-(window.winTitle('Titolo della finestra').winGeometry('800x600'))
+(window.win_title('Titolo della finestra').win_size('800x600'))
 
-(window.gotoxy(30, 80).setRowHeigh(20).setInputSize(30, 1).
- text('Name').crlf().
- input('', k=KEY_NAME).crlf().
- text('Surname').crlf().
- input('', k=KEY_SURNAME).crlf().
+(window.move_to(30, 80).set_row_height(20).set_input_size(30, 1).
+ text('Name').br().
+ input('', k=KEY_NAME).br().
+ text('Surname').br().
+ input('', k=KEY_SURNAME).br().
  checkboxes('Gender:', ('Male', 'Female', 'Other'), k=KEY_CHECKBOXES1).
  checkboxes('Cars:', ('Maserati', 'Ferrari', 'Lamborghini', 'Fiat'), k=KEY_CHECKBOXES2).
  listbox('Select these:', ('Aereoplane|AEREO', 'Elicopter|ELIC', 'Machine|MAC', 'Gun|GUN', 'Gun 1|GUN1', 'Gun2|GUN2', 'Gun3|GUN3', 'Bomb|BOMB'), multi_select=True, nr_rows=5, k=KEY_LISTBOX,
-         default='ELIC').crlf().
+         default='ELIC').br().
  button('Leggi', k=KEY_BTN_LEGGI)
  )
 

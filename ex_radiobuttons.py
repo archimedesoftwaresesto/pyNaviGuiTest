@@ -6,22 +6,22 @@ window = ng.Ng()
 (KEY_CLOSE, KEY_NAME, KEY_SURNAME, KEY_OPTIONS, KEY_CB_COLORS, KEY_NOTE1, KEY_NOTE2, KEY_RB_AUTOMOBILE, KEY_BTN_RIASSUMI,KEY_RB_ELEMENTS,
 KEY_EMAIL, KEY_BTN_INVISIBILITA,  *_) = window.set_keys()
 
-(window.winTitle('Titolo della finestra').winGeometry('800x600'))
+(window.win_title('Titolo della finestra').win_size('800x600'))
 
-(window.gotoxy(30, 20).setTextSize(10).setInputSize(30, 1).
- text('Name',s='ana').crlf().
- input('', k=KEY_NAME).crlf().
- text('Surname').crlf().
- input('', k=KEY_SURNAME).crlf().crlf().
- text('Note ').input('', k=KEY_NOTE1).crlf().
- text('Note altre').input('', k=KEY_NOTE2).crlf().crlf().
+(window.move_to(30, 20).set_text_size(10).set_input_size(30, 1).
+ text('Name',s='ana').br().
+ input('', k=KEY_NAME).br().
+ text('Surname').br().
+ input('', k=KEY_SURNAME).br().br().
+ text('Note ').input('', k=KEY_NOTE1).br().
+ text('Note altre').input('', k=KEY_NOTE2).br().br().
  set(s='c1').
  checkboxes('Your very preferred colours', ('Red', 'Yellow', 'Brown'), k=KEY_CB_COLORS).
  radio('Automobile used', ('Maserati|MASER', 'Ferrari|FERRARI', 'Lamborghini|LAMB', 'Fiat|FIAT'), default='LAMB', k=KEY_RB_AUTOMOBILE).
  set(s='').
  text('Email').input('', k=KEY_EMAIL).
- radio('Choose', ('First element|FIRST', 'Secon element|SECOND'), k=KEY_RB_ELEMENTS).crlf().
- button('Riassumi valori', k=KEY_BTN_RIASSUMI).crlf().
+ radio('Choose', ('First element|FIRST', 'Secon element|SECOND'), k=KEY_RB_ELEMENTS).br().
+ button('Riassumi valori', k=KEY_BTN_RIASSUMI).br().
 button('Prime due colonne invisibili', k=KEY_BTN_INVISIBILITA)
  )
 

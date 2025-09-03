@@ -25,23 +25,23 @@ ngWin = ng.Ng(embed_mode=True, parent_root=fsg_root)
 KEY_EMAIL, KEY_BTN_INVISIBILITA, KEY_BTN_PYNAVI,  *_) = ngWin.set_keys()
 
 # Crea gli elementi pyNaviGui
-(ngWin.gotoxy(530, 20).setTextSize(15, 1).setInputSize(30, 1).
- text('Name', s='ana').crlf().
- input('', k=KEY_NAME).crlf().
- text('Surname').crlf().
- input('', k=KEY_SURNAME).crlf().crlf().
- text('Note ').input('', k=KEY_NOTE1).crlf().
- text('Note altre').input('', k=KEY_NOTE2).crlf().crlf().
- gotoxy(130, 210).
+(ngWin.move_to(530, 20).set_text_size(15, 1).set_input_size(30, 1).
+ text('Name', s='ana').br().
+ input('', k=KEY_NAME).br().
+ text('Surname').br().
+ input('', k=KEY_SURNAME).br().br().
+ text('Note ').input('', k=KEY_NOTE1).br().
+ text('Note altre').input('', k=KEY_NOTE2).br().br().
+ move_to(130, 210).
  set(s='c1').
  checkboxes('Preferred colours', ('Red', 'Yellow', 'Brown'), k=KEY_CB_COLORS).
  checkboxes('Automobile used', ('Maserati|MASER', 'Ferrari|FERRARI', 'Lamborghini|LAMB', 'Fiat|FIAT'),
             k=KEY_CB_AUTOMOBILE).
  set(s='').
  text('Email').input('', k=KEY_EMAIL).
- checkboxes('Choose', ('First element|FIRST', 'Secon element|SECOND'), k=KEY_CB_ELEMENTS).crlf().
- button('Riassumi valori', k=KEY_BTN_RIASSUMI).crlf().
- button('Prime due colonne invisibili', k=KEY_BTN_INVISIBILITA).crlf().
+ checkboxes('Choose', ('First element|FIRST', 'Secon element|SECOND'), k=KEY_CB_ELEMENTS).br().
+ button('Riassumi valori', k=KEY_BTN_RIASSUMI).br().
+ button('Prime due colonne invisibili', k=KEY_BTN_INVISIBILITA).br().
  button('Leggi',k=KEY_BTN_PYNAVI)
  )
 ngWin.finalize_layout()

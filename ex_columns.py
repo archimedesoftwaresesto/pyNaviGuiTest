@@ -6,33 +6,33 @@ KEY_FIELD1, KEY_FIELD2, KEY_FIELD3,
  *_ ) = window.set_keys()
 
 # general settings of the window and other use, ful variables
-window.winTitle('Titolo della finestra').winGeometry('800x600')
+window.win_title('Titolo della finestra').win_size('800x600')
 
 # first column
 ref_y = 30
 ref_x = 80
 
-(window.gotoxy(ref_x,ref_y).setRowHeigh(20).setInputSize(30,1).
- text('Name').crlf().
- input('', k=KEY_NAME).crlf().
- text('Surname').crlf().
- input('', k=KEY_SURNAME).crlf().
- text('Date of born').crlf().
+(window.move_to(ref_x,ref_y).set_row_height(20).set_input_size(30,1).
+ text('Name').br().
+ input('', k=KEY_NAME).br().
+ text('Surname').br().
+ input('', k=KEY_SURNAME).br().
+ text('Date of born').br().
  input('', k=KEY_BORN)
  )
 
 # second column
-(window.gotoxy(ref_x + 220 ,ref_y).setRowHeigh(20).setInputSize(30,1).
- text('Weight').crlf().
- input('', k=KEY_WEIGHT).crlf().
- text('Age').crlf().
- input('', k=KEY_AGE).crlf().
- text('Email').crlf().
+(window.move_to(ref_x + 220 ,ref_y).set_row_height(20).set_input_size(30,1).
+ text('Weight').br().
+ input('', k=KEY_WEIGHT).br().
+ text('Age').br().
+ input('', k=KEY_AGE).br().
+ text('Email').br().
  input('', k=KEY_EMAIL)
  )
 
 # last line with commands
-(window.gotoxy(80,230).setRowHeigh(30).setInputSize(30,1).
+(window.move_to(80,230).set_row_height(30).set_input_size(30,1).
  button('Add elements',k=KEY_BTN_ADD)
  )
 
@@ -47,12 +47,12 @@ while True:
         window.delete(k=KEY_FIELD1).delete(k=KEY_FIELD2).delete(k=KEY_FIELD3)
 
         # adding the elements
-        (window.gotoBelow(k=KEY_EMAIL).setRowHeigh(20).setInputSize(30, 1).
+        (window.move_below(k=KEY_EMAIL).set_row_height(20).set_input_size(30, 1).
          text('Field 1').
-         input('', k=KEY_FIELD1).crlf().
-         text('Filed 2').crlf().
-         input('', k=KEY_FIELD2).crlf().
-         text('Field 3').crlf().
+         input('', k=KEY_FIELD1).br().
+         text('Filed 2').br().
+         input('', k=KEY_FIELD2).br().
+         text('Field 3').br().
          input('', k=KEY_FIELD3)
          )
 

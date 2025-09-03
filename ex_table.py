@@ -5,17 +5,17 @@ window = ng.Ng()
  *_ ) = window.set_keys()
 
 # general settings of the window and other use, ful variables
-(window.winTitle('Titolo della finestra').winGeometry('800x600'))
+(window.win_title('Titolo della finestra').win_size('800x600'))
 
 
 
-(window.gotoxy(30,80).setRowHeigh(20).setInputSize(30,1).
- text('Name').crlf().
- input('', k=KEY_NAME).crlf().
- text('Surname').crlf().
- input('', k=KEY_SURNAME).crlf().
+(window.move_to(30,80).set_row_height(20).set_input_size(30,1).
+ text('Name').br().
+ input('', k=KEY_NAME).br().
+ text('Surname').br().
+ input('', k=KEY_SURNAME).br().
  checkboxes( ('Male','Female','Other'), k=KEY_SEX ).
- checkboxes(('Maserati|MAS', 'Ferrari|FERR', 'Lamborghini|LAMB','Fiat|FIAT'),k=KEY_MACHINE).crlf()
+ checkboxes(('Maserati|MAS', 'Ferrari|FERR', 'Lamborghini|LAMB','Fiat|FIAT'),k=KEY_MACHINE).br()
  )
 
 tableconf={'NOME':['Nome',10], 'COGNOME':['Cognome',20], 'ANNI':['Anni',5]}
@@ -32,7 +32,44 @@ tabledata = [
     ['Elena', 'Giordano', 27],
     ['Stefano', 'Mancini', 46],
     ['Paola', 'Lombardi', 32],
-    ['Giuseppe', 'Moretti', 48]
+    ['Giuseppe', 'Moretti', 48],
+    ['Marco', 'Bianchi', 39],
+    ['Laura', 'Rossi', 44],
+    ['Andrea', 'Romano', 31],
+    ['Dario', 'Ferrari', 52],
+    ['Giulia', 'Fontana', 29],
+    ['Roberto', 'Greco', 37],
+    ['Simona', 'Martini', 36],
+    ['Alessandro', 'Giordano', 43],
+    ['Elena', 'Costa', 25],
+    ['Stefano', 'Moretti', 47],
+    ['Paola', 'Mancini', 34],
+    ['Giuseppe', 'Lombardi', 51],
+    ['Marco', 'Giacomelli', 40],
+    ['Laura', 'Ferrari', 38],
+    ['Andrea', 'Bianchi', 33],
+    ['Giulia', 'Rossi', 31],
+    ['Federica', 'Romano', 36],
+    ['Roberto', 'Fontana', 45],
+    ['Dario', 'Greco', 48],
+    ['Alessandro', 'Martini', 32],
+    ['Elena', 'Mancini', 29],
+    ['Stefano', 'Costa', 44],
+    ['Paola', 'Giordano', 37],
+    ['Giuseppe', 'Ferrari', 50],
+    ['Marco', 'Romano', 34],
+    ['Laura', 'Fontana', 41],
+    ['Andrea', 'Martini', 30],
+    ['Giulia', 'Greco', 35],
+    ['Federica', 'Bianchi', 38],
+    ['Roberto', 'Rossi', 42],
+    ['Simona', 'Giacomelli', 33],
+    ['Alessandro', 'Lombardi', 47],
+    ['Elena', 'Moretti', 26],
+    ['Dario', 'Mancini', 49],
+    ['Paola', 'Costa', 35],
+    ['Giuseppe', 'Giordano', 46],
+    ['Marco', 'Fontana', 37]
 ]
 
 colors=[]
@@ -45,7 +82,7 @@ for i,r in enumerate(tabledata):
     colors.append([i, colsfondo, colcarattere])
 
 (
-    window.table('Tabella anagrafica', conf=tableconf, data= tabledata, nr_rows=7, rowcolors=colors, k=KEY_TABELLA).crlf().
+    window.table('Tabella anagrafica', conf=tableconf, data= tabledata, nr_rows=7, rowcolors=colors, k=KEY_TABELLA).br().
     button('Leggi',k=KEY_BTN_LEGGI)
 )
 
