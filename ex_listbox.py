@@ -19,7 +19,7 @@ window = ng.Ng()
  button('Leggi', k=KEY_BTN_LEGGI)
  )
 
-window.finalize_layout()
+
 
 while True:
     event, values = window.read()
