@@ -152,6 +152,7 @@ while True:
             '_IMG_ROW_5'):
         # Gestione click su immagini
         if '_clicked_data' in values and values['_clicked_data']:
+            window.to_front(shas='PANNELLO_SEL')
             window.visible(not window.is_visible(k=KEY_PANEL_SEL), shas='PANNELLO_SEL')
             clicked_data = values['_clicked_data']
     if event == KEY_BTN_CERCA:
