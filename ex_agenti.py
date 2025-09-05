@@ -18,7 +18,7 @@ col2_y= 20
 (window.move_to(col1_x, col2_y).set_text_size(20).set_input_size(20, 1).
 
  text('Inizio Codice Articolo').br().
- input('', k=KEY_INPUT_CODICE_ART).
+ input('', set_focus=True,  k=KEY_INPUT_CODICE_ART).
  button('FILTRI', k=KEY_BTN_FILTRI).br().
  text('Descrizione').br().
  input('', k=KEY_INPUT_DESCRIZIONE).
@@ -153,6 +153,7 @@ while True:
         # Gestione click su immagini
         if '_clicked_data' in values and values['_clicked_data']:
             window.to_front(shas='PANNELLO_SEL')
+            window.set_focus(KEY_QTA)
             window.visible(not window.is_visible(k=KEY_PANEL_SEL), shas='PANNELLO_SEL')
             clicked_data = values['_clicked_data']
     if event == KEY_BTN_CERCA:
@@ -172,12 +173,14 @@ while True:
 
         )
     if event == KEY_BTN_CHIUDI_PANEL:
+        window.set_focus(KEY_INPUT_CODICE_ART)
         window.visible(not window.is_visible(k=KEY_PANEL_SEL), shas='PANNELLO_SEL')
     if event == KEY_BTN_AGGIUNGI:
         qta = values.get(KEY_QTA)
         if qta == '':
             print('Errore inserire una quantita')
         else:
+            window.set_focus(KEY_INPUT_CODICE_ART)
             window.visible(not window.is_visible(k=KEY_PANEL_SEL), shas='PANNELLO_SEL')
             aggiungi_carrello(clicked_data, qta)
 window.close()
