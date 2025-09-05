@@ -1,4 +1,4 @@
-import pyNaviGui as ng
+import runner,  pyNaviGui as ng
 
 window = ng.Ng()
 (KEY_TABLENAV_PERSONE, KEY_TABLENAV2_PRODOTTI, KEY_TABLENAV_PRODOTTI_IDEM, KEY_BTN_LEGGI, KEY_BTN_RICREA, *_) = window.set_keys()
