@@ -50,5 +50,5 @@ while True:
 
 window.close()
 
-
 #2025_0908 event_click and event_dbclick
+#2025_0909 in git again for error
