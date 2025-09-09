@@ -1,7 +1,7 @@
 import runner,  pyNaviGui as ng
 
 window = ng.Ng()
-(KEY_CLOSE, KEY_NAME, KEY_SURNAME, KEY_OPTIONS, KEY_BTN_LEGGI, KEY_CHECKBOXES1, KEY_CHECKBOXES2, KEY_COMBOBOX,
+(KEY_CLOSE, KEY_NAME, KEY_SURNAME, KEY_OPTIONS, KEY_BTN_LEGGI, KEY_CHECKBOXES1, KEY_CHECKBOXES2, KEY_LISTBOX,
  *_) = window.set_keys()
 
 # general settings of the window and other use, ful variables
@@ -14,8 +14,8 @@ window = ng.Ng()
  input('', k=KEY_SURNAME).br().
  checkboxes('Gender:', ('Male', 'Female', 'Other'), k=KEY_CHECKBOXES1).
  checkboxes('Cars:', ('Maserati', 'Ferrari', 'Lamborghini', 'Fiat'), k=KEY_CHECKBOXES2).
- combobox('Select these:', ('Aereoplane|AEREO', 'Elicopter|ELIC', 'Machine|MAC', 'Gun|GUN', 'Gun 1|GUN1', 'Gun2|GUN2', 'Gun3|GUN3', 'Bomb|BOMB'),  nr_rows=5, k=KEY_COMBOBOX,
-         default='ELIC' , event_change=False ).br().
+ listbox('Select these:', ('Aereoplane|AEREO', 'Elicopter|ELIC', 'Machine|MAC', 'Gun|GUN', 'Gun 1|GUN1', 'Gun2|GUN2', 'Gun3|GUN3', 'Bomb|BOMB'), multi_select=True, nr_rows=5, k=KEY_LISTBOX,
+         default='ELIC',event_click=True, event_dbclick=True).br().
  button('Leggi', k=KEY_BTN_LEGGI)
  )
 
@@ -33,9 +33,13 @@ while True:
         print(f"Selected Vehicle: '{values.get(KEY_LISTBOX, '')}'")
         print("===================\n")
 
-    if event == KEY_COMBOBOX:
-        print('You changed the combobox!')
-        print(f"Selected Vehicle: '{values.get(KEY_COMBOBOX, '')}'")
+    if event == KEY_LISTBOX:
+        print('You clicked the listbox!')
+        print(f"Selected Vehicle: '{values.get(KEY_LISTBOX, '')}'")
+
+    if event == KEY_LISTBOX+'_DBCLICK':
+        print('You double clicked the listbox!')
+        print(f"Selected Vehicle: '{values.get(KEY_LISTBOX, '')}'")
 
 
 
@@ -47,4 +51,4 @@ while True:
 window.close()
 
 
-#2025_0908 event_click and event_dbclick , event_change on listbox
+#2025_0908 event_click and event_dbclick
