@@ -53,7 +53,6 @@ alternate_rowcolor='#CCCCCC',
 
 # Bottone per leggere i valori
 window.move_to(900, 550).button('Rileggi i prodotti',k=KEY_BTN_RICREA).button('Leggi Valori', k=KEY_BTN_LEGGI)
-
 window.finalize_layout()
 
 while True:
@@ -62,6 +61,7 @@ while True:
     if event == KEY_BTN_LEGGI:
         print("=== VALORI CORRENTI ===")
         if KEY_TABLENAV_PERSONE in values:
+            tab1 = values[KEY_TABLENAV_PERSONE]
             tab1 = values[KEY_TABLENAV_PERSONE]
             print(f"Tabella Persone - Pagina {tab1['pagina_corrente'] + 1}/{tab1['totale_pagine']}")
             print("Dati pagina corrente:", tab1['dati_pagina_corrente'])

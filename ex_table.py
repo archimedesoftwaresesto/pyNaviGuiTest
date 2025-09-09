@@ -82,7 +82,8 @@ for i,r in enumerate(tabledata):
     colors.append([i, colsfondo, colcarattere])
 
 (
-    window.table('Tabella anagrafica', conf=tableconf, data= tabledata, nr_rows=7, rowcolors=colors, k=KEY_TABELLA).br().
+    window.table('Tabella anagrafica', conf=tableconf, data= tabledata,
+                 nr_rows=7, rowcolors=colors, event_click=True, event_dbclick=True, k=KEY_TABELLA).br().
     button('Leggi',k=KEY_BTN_LEGGI)
 )
 
@@ -99,8 +100,25 @@ while True:
         for x in selected:
             print(tabledata[x])
 
+    if event == KEY_TABELLA:
+        print('You clicked the table')
+        selected = values[KEY_TABELLA]
+        print(selected)
+        for x in selected:
+            print(tabledata[x])
+
+    if event == KEY_TABELLA+'_DBCLICK':
+        print('You double clicked the table')
+        selected = values[KEY_TABELLA]
+        print(selected)
+        for x in selected:
+            print(tabledata[x])
+
     if event == None:
         print('Window closed')
         break
 
 window.close()
+
+
+#2025_0908 event_click and event_dbclick
