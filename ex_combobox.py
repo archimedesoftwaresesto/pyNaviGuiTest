@@ -1,4 +1,4 @@
-import pyNaviGui as ng
+import runner, pyNaviGui as ng
 
 # Create window
 window = ng.Ng(geometry='400x300')
