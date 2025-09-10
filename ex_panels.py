@@ -38,7 +38,7 @@ panel('')  # End panel
 
 # Hide panel initially
 window.visible(False, shas='PANNELLO1').visible(False, shas='PANNELLO2')
-
+ssssssssssssssssssssssssssssssss 2222222222222222222
 window.finalize_layout()
 
 while True:
