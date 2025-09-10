@@ -8,7 +8,7 @@ window = ng.Ng()
  KEY_INPUT_RAGGRUPPAMENTO, KEY_INPUT_COLLEZZIONE, KEY_INPUT_FAMIGLIA, KEY_INPUT_CAMPAGNA,
  KEY_INPUT_SOTTOFAMIGLIA, KEY_INPUT_CATALOGO, KEY_TABELLA_PRODOTTI, KEY_TABELLA_CARRELLO,
  KEY_BTN_CERCA, KEY_INPUT_QTA, KEY_IND_2, KEY_ALTRO, KEY_PANEL_SEL, KEY_BTN_AGGIUNGI,
- KEY_BTN_CHIUDI_PANEL, *_) = window.set_keys()
+ KEY_BTN_CHIUDI_PANEL, KEY_COMBOBOX_COLLEZZIONE,  *_) = window.set_keys()
 
 
 window.win_title('Titolo della finestra').win_size('1500x800')
@@ -35,14 +35,22 @@ col2_y= 20
     set(s='')
 )
 #colonna 2
+options = ['ESTATE 2024|es24', 'INVERNO 2024|inv24', 'ESTATE 2025|es25', 'INVERNO 2025|inv25']
 (
+    window.move_to(col1_x+350, col2_y).set_text_size(20).set_input_size(20, 1).set(s='FILTRI').
+    text('Raggruppamento').br().
+    input('', k=KEY_INPUT_RAGGRUPPAMENTO).br().
+    combobox('Collezzione: ', options, k=KEY_COMBOBOX_COLLEZZIONE, default='es25', event_change=True).
+    set(s='')
+)
+'''(
     window.move_to(col1_x+350, col2_y).set_text_size(20).set_input_size(20, 1).set(s='FILTRI').
     text('Raggruppamento').br().
     input('', k=KEY_INPUT_RAGGRUPPAMENTO).br().
     text('Collezzione').br().
     input('', k=KEY_INPUT_COLLEZZIONE).
     set(s='')
-)
+)'''
 #colonna 3
 (
     window.move_to(col1_x + 500, col2_y).set_text_size(20).set_input_size(20, 1).set(s='FILTRI').
@@ -67,7 +75,8 @@ col2_y= 20
 #colonna carrello
 (
     window.move_to(col1_x + 900, col2_y).set_text_size(30).
-    text('P R O D O T T I   O R D I N A T I')
+    text('P R O D O T T I   O R D I N A T I').
+    combobox('Prova cmbox', options, k='KEY_COMBOBOX_COLLEZZIONE', default='es25', event_change=True)
 )
 #colonna elenco
 conf_tab_prodotti = {'CODICE': ['Codice', 8], 'DESCRIZIONE': ['Descrizione', 25], 'PREZZO': ['Prezzo', 8]}
